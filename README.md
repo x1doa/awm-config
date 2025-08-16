@@ -1,8 +1,3 @@
-A configuration of the awesome window manager by me <br>
-Feel free to use it. 
-
-This configuration works only for awesome window manager git branch
-
 This code is still an big mess. I will clean and refactor the code up when it's ready
 
 # Installation Instructions

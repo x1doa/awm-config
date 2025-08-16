@@ -9,7 +9,7 @@ local gfs = require("gears.filesystem")
 local CONFIG_DIR = gfs.get_configuration_dir()
 
 require "modules.bling".widget.tag_preview.enable {
-    show_client_content = true, -- Whether or not to show the client content
+    show_client_content = false, -- Whether or not to show the client content
     x = dpi(0), -- The x-coord of the popup
     y = dpi(0), -- The y-coord of the popup
     scale = 0.20, -- The scale of the previews compared to the screen
@@ -301,7 +301,6 @@ screen.connect_signal(
             end
         )
 
-        -- Use awful.popup instead of awful.wibar to prevent known fullscreen issues when opening applications in fullscreen mode
         s.bottom_panel =
             awful.popup {
             screen = s,
@@ -373,6 +372,7 @@ screen.connect_signal(
 
         --- Remove bottom panel on full screen
         --- It doesn't reappear until full screen application is closed or back to normal mode
+        --- Just to prevent fullscreen issue when starting an application in fullscreen mode
         local function remove_bottom_panel(c)
             if c.fullscreen then
                 c.screen.bottom_panel.visible = false
@@ -381,7 +381,6 @@ screen.connect_signal(
             end
         end
 
-        --- Remove bottom panel on full screen
         local function add_bottom_panel(c)
             if c.fullscreen then
                 c.screen.bottom_panel.visible = true
