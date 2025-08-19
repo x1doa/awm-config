@@ -150,8 +150,8 @@ awful.keyboard.append_global_keybindings(
             {description = "Window Switcher", group = "bling"}
         ),
         awful.key(
-            {"Mod1"},
-            "space",
+            {"Ctrl", "Mod1"},
+            "a",
             function()
                 bling.module.tabbed.pick()
             end,
