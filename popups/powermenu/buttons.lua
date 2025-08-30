@@ -78,6 +78,7 @@ local powermenu_buttons = {
     poweroff = create_button("poweroff", "poweroff", poweroffcmd, beautiful.bg_focus, "[P]oweroff"),
     sleep = create_button("sleep", "sleep", suspendcmd, beautiful.bg_focus, "[S]uspend"),
     lock = create_button("lock", "lock", "loginctl lock-session", beautiful.bg_focus, "[L]ock")
+    hibernate = create_button("hibernate", "hibernate", hibernatecmd, beautiful.bg_focus, "[H]ibernate")
 }
 powermenu_buttons.logout:connect_signal(
     "button::press",

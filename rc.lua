@@ -30,6 +30,8 @@ awful.spawn.with_shell("nm-applet")
 -- }}
 
 -- {{ Variables
+
+-- Default terminal
 terminal = "st"
 
 -- By default. loginctl was used as an reboot, poweroff and suspend commands because i'm using an non-systemd distro
@@ -37,6 +39,7 @@ terminal = "st"
 rebootcmd = "loginctl reboot"
 poweroffcmd = "loginctl poweroff"
 suspendcmd = "loginctl suspend"
+hibernatecmd = "loginctl hibernate"
 -- }}
 
 -- Error handling

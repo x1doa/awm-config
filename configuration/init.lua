@@ -62,6 +62,7 @@ system = {
     {"Reboot", rebootcmd},
     {"Poweroff", poweroffcmd},
     {"Suspend", suspendcmd},
+    {"Hibernate", hibernatecmd},
     {"Change Screen Resolution", "arandr"}
 }
 
