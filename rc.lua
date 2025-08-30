@@ -1,8 +1,3 @@
--- {{
--- ltuyen's awesome window manager config
--- }}
-
-
 -- {{ Load an library
 pcall(require, "luarocks.loader")
 require("awful.autofocus")
