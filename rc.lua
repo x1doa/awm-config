@@ -1,13 +1,9 @@
--- {{
--- ltuyen's awesome window manager config
--- }}
-
-
 -- {{ Load an library
 pcall(require, "luarocks.loader")
 require("awful.autofocus")
 local awful = require("awful")
 local gears = require("gears")
+local gfs = require("gears.filesystem")
 -- }}
 
 -- {{ Autostart
@@ -24,19 +20,22 @@ awful.spawn.with_shell("picom --daemon --config " .. require 'gears.filesystem'.
 spawn_once("lxpolkit")
 spawn_once("udiskie")
 spawn_once("xss-lock --transfer-sleep-lock slock")
-awful.spawn.with_shell("cbatticon")
 awful.spawn.with_shell("xrdb -merge ~/.Xresources")
-awful.spawn.with_shell("nm-applet")
+spawn_once("nm-applet")
+spawn_once("blueman-applet")
 -- }}
 
 -- {{ Variables
-terminal = "st"
+
+-- Default terminal
+terminal = gfs.get_configuration_dir() .. "modules/bling/widget/app_launcher/awesome-sensible-terminal"
 
 -- By default. loginctl was used as an reboot, poweroff and suspend commands because i'm using an non-systemd distro
 -- Replace loginctl with systemctl if using systemd as an init.
 rebootcmd = "loginctl reboot"
 poweroffcmd = "loginctl poweroff"
 suspendcmd = "loginctl suspend"
+hibernatecmd = "loginctl hibernate"
 -- }}
 
 -- Error handling

@@ -46,7 +46,7 @@ local powermenu =
 
 -- {{
 -- Code was taken from: https://github.com/raven2cz/awesomewm-config and modified it.
--- Not made by yourself.
+-- Not made by me.
 
 local exit_actions = {
     ["poweroff"] = function()
@@ -63,6 +63,9 @@ local exit_actions = {
     end,
     ["lock"] = function()
         awful.spawn.with_shell("loginctl lock-session")
+    end,
+    ["hibernate"] = function()
+        awful.spawn.with_shell(hibernatecmd)
     end
 }
 
@@ -74,6 +77,9 @@ local function getKeygrabber()
                 awesome.emit_signal("powermenu::close")
             elseif key == "r" then
                 exit_actions["reboot"]()
+                awesome.emit_signal("powermenu::close")
+            elseif key == "h" then
+                exit_actions["hibernate"]()
                 awesome.emit_signal("powermenu::close")
             elseif key == "s" then
                 exit_actions["suspend"]()
@@ -169,6 +175,7 @@ local powerbutton = {
     buttons.logout,
     buttons.sleep,
     buttons.lock,
+    buttons.hibernate,
     spacing = dpi(10),
     layout = wibox.layout.fixed.horizontal
 }

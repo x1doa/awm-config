@@ -21,12 +21,6 @@ require "modules.bling".widget.tag_preview.enable {
             {margins = {bottom = dpi(beautiful.widthbar + beautiful.wibar_width), left = dpi(beautiful.widthbar)}}
         )
     end,
-  	background_widget = wibox.widget {
-	    	image = beautiful.wall,
-    		horizontal_fit_policy = "fit",
-    		vertical_fit_policy = "fit",
-    		widget = wibox.widget.imagebox,
-  	}
 }
 
 screen.connect_signal(
@@ -357,7 +351,28 @@ screen.connect_signal(
                         top = dpi(7),
                         bottom = dpi(7),
                         left = dpi(5),
-                        right = dpi(7),
+                        right = dpi(0),
+                        widget = wibox.container.margin
+                    },
+                    {
+                        require("modules.batteryarc")({
+                            enable_battery_warning = false,
+                            show_current_level = true,
+                            size = dpi(beautiful.wibar_width),
+                            bg_color = beautiful.altnormal2,
+                            arc_thickness = 3,
+                            show_notification_mode = 'on_click',
+                            main_color = beautiful.fg_focus,
+                            charging_color = beautiful.green,
+                            font = beautiful.font,
+                            notification_position = 'bottom_right',
+                            medium_level_color = beautiful.yellow,
+                            low_level_color = beautiful.red
+                        }),
+                        top = dpi(7),
+                        bottom = dpi(7),
+                        left = dpi(0),
+                        right = dpi(0),
                         widget = wibox.container.margin
                     },
                     layout = wibox.layout.fixed.horizontal

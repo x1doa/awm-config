@@ -213,7 +213,7 @@ awful.keyboard.append_global_keybindings(
             description = "Increase the brightness by 5%",
             group = "volume and brightness",
             on_press = function()
-                awful.spawn("light -A 5")
+                awful.spawn("light -A 20")
                 osd.visible = true
                 awesome.emit_signal("widget::brightness")
                 timer:again()
@@ -225,10 +225,9 @@ awful.keyboard.append_global_keybindings(
             description = "Decrease the brightness by 5%",
             group = "volume and brightness",
             on_press = function()
-                awful.spawn("light -U 5")
+                awful.spawn("light -U 20")
                 osd.visible = true
                 awesome.emit_signal("widget::brightness")
-                awesome.emit_signal("widget::brightnessarc")
                 timer:again()
             end
         },

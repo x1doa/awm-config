@@ -53,7 +53,33 @@ client.connect_signal(
         --- Disable popup tooltip on titlebar button hover
         awful.titlebar.enable_tooltip = false
 
-        awful.titlebar(c, {position = "left", size = dpi(40)}).widget = {
+        awful.titlebar(c, {position = "top", size = dpi(40)}).widget = {
+            {
+                -- Bottom
+                {
+                    awful.titlebar.widget.iconwidget(c),
+                    buttons = buttons,
+                    spacing = dpi(5),
+                    layout = wibox.layout.fixed.horizontal
+                },
+                top = dpi(10),
+                bottom = dpi(10),
+                left = dpi(10),
+                right = dpi(10),
+                widget = wibox.container.margin
+            },
+            {
+                -- Center
+                {
+                    buttons = buttons,
+                    spacing = dpi(0),
+                    layout = wibox.layout.fixed.horizontal
+                },
+                top = dpi(0),
+                bottom = dpi(0),
+                right = dpi(0),
+                widget = wibox.container.margin
+            },
             {
                 -- Top
                 {
@@ -71,35 +97,8 @@ client.connect_signal(
                     widget = wibox.container.margin
                 },
                 widget = wibox.container.rotate,
-                direction = "east"
             },
-            {
-                -- Center
-                {
-                    buttons = buttons,
-                    spacing = dpi(0),
-                    layout = wibox.layout.fixed.vertical
-                },
-                top = dpi(0),
-                bottom = dpi(0),
-                right = dpi(0),
-                widget = wibox.container.margin
-            },
-            {
-                -- Bottom
-                {
-                    awful.titlebar.widget.iconwidget(c),
-                    buttons = buttons,
-                    spacing = dpi(5),
-                    layout = wibox.layout.fixed.vertical
-                },
-                top = dpi(10),
-                bottom = dpi(10),
-                left = dpi(10),
-                right = dpi(10),
-                widget = wibox.container.margin
-            },
-            layout = wibox.layout.align.vertical
+            layout = wibox.layout.align.horizontal
         }
     end
 )
