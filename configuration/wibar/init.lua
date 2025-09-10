@@ -225,7 +225,7 @@ screen.connect_signal(
                             bottom = dpi(10),
                             widget = wibox.container.margin
                         },
-                        forced_width = awful.screen.focused().geometry.width,
+                        forced_width = dpi(300),
                         spacing = dpi(10),
                         layout = wibox.layout.fixed.horizontal
                     },
